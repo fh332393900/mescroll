@@ -197,7 +197,7 @@ function touchendEvent(e, ins) {
 		me.movetype = 0;
 		me.isMoveDown = false;
 	} else if (!me.isScrollBody && me.getScrollTop() === me.startTop) { // scroll-view到顶/左/右/底的滑动事件
-		var isScrollUp = me.getPoint(e).y - me.startPoint.y < 0; // 和起点比,移动的距离,大于0向下拉,小于0向上拉
+		var isScrollUp = me.getPoint(e).y - me.startPoint.y < 0 && Math.abs(me.getPoint(e).y - me.startPoint.y) > 1; // 和起点比,移动的距离,大于0向下拉,小于0向上拉
 		// 上滑
 		if (isScrollUp) {
 			// 需检查滑动的角度
